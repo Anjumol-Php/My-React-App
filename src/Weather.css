@@ -1,0 +1,53 @@
+/* Weather.css */
+.weather-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.weather-card {
+  background: rgba(128, 122, 122, 0.2); /* Semi-transparent */
+  backdrop-filter: blur(10px); /* Glass effect */
+  border-radius: 20px;
+  padding: 40px;
+  width: 320px;
+  text-align: center;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.weather-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.weather-card button {
+  background: #ff7e5f;
+  background: linear-gradient(to right, #feb47b, #ff7e5f);
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+.weather-card button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(255, 126, 95, 0.4);
+}
+
+.result h1 {
+  font-size: 3.5rem;
+  margin: 10px 0;
+}
+
+.loading-text {
+  font-style: italic;
+  color: #ddd;
+}
