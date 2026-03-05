@@ -36,26 +36,32 @@ function Weather() {
     });
   };
 
-  return (
-    <div className="weather-container">
-      <div className="weather-card">
-        <h3>☀️ Live Weather</h3>
-        <button onClick={fetchMyLocationWeather}>Check My Location</button>
+  // 1. Adyam oru variable undakkuka (temperature nokki class name thiranjanukkaan)
+const weatherClass = weather 
+  ? (weather.temperature > 25 ? 'hot' : 'cool') 
+  : 'default';
 
-        {loading && <p className="loading-text">Fetching data... 📡</p>}
+return (
+  /* 2. dynamic aayi class name kodukkunnu */
+  <div className={`weather-container ${weatherClass}`}>
+    <div className="weather-card">
+      <h3>☀️ Live Weather</h3>
+      <button onClick={fetchMyLocationWeather}>Check My Location</button>
 
-        {weather && !loading && (
-          <div className="result">
-            <h1>{weather.temperature}°C</h1>
-            <p>Windspeed: {weather.windspeed} km/h</p>
-            <div className="weather-icon" style={{ fontSize: '3rem', marginTop: '10px' }}>
-              {weather.temperature > 25 ? "☀️" : "☁️"}
-            </div>
+      {loading && <p className="loading-text">Fetching data... 📡</p>}
+
+      {weather && !loading && (
+        <div className="result">
+          <h1>{weather.temperature}°C</h1>
+          <p>Windspeed: {weather.windspeed} km/h</p>
+          <div className="weather-icon" style={{ fontSize: '4rem' }}>
+            {weather.temperature > 25 ? "☀️" : "❄️"}
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
-  );
+  </div>
+);
 }
 
 export default Weather;
