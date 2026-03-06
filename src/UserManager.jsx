@@ -39,7 +39,15 @@ function UserManager() {
   const deleteUser = async (id) => {
     await deleteDoc(doc(db, "users", id));
   };
-
+// Database-il ninnu ella user-ineyum delete cheyyunnathinu
+const clearAllUsers = async () => {
+  // Oru cheriya safety check - ariyathe click aayal pani aavum!
+  if (window.confirm("Are you sure you want to delete all users?")) {
+    users.forEach(async (user) => {
+      await deleteDoc(doc(db, "users", user.id));
+    });
+  }
+};
   return (
     <div className="user-manager-card">
       <h2 style={{color: 'white'}}>🔥 Firebase Cloud Users</h2>
@@ -49,6 +57,7 @@ function UserManager() {
         placeholder="Enter name..."
       />
       <button onClick={addUser}>Add to Cloud</button>
+      <button onClick={clearAllUsers} style={{background: 'orange'}}>Clear All</button>
 
       <ul>
         {users.map(user => (
