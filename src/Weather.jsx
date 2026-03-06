@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './Weather.css';
+import { motion } from 'framer-motion';
 
 function Weather() {
   const [weather, setWeather] = useState(null);
